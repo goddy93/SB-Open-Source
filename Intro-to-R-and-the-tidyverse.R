@@ -29,7 +29,7 @@ colnames(iris)[4] <- "PW"
 
 # or change the name of one of the species...
 iris$Species <- as.character(iris$Species)
-iris$Species[is.na(iris$Species)] <- "ibexus"
+iris$Species[iris$Species] <- "ibexus"
 
 # now let's say we want to do several of these at once...
 # but let's first reload the data
@@ -46,7 +46,7 @@ library(tidyverse)
 
 # The tidyverse introduces a new way to view/format data: the tibble
 # it makes the output to the console neater, among other things
-x <- as_tibble(iris)
+ x<- as_tibble(iris)
 
 # Let's try to do some of the same things as before, but using dplyr functions
 
@@ -60,7 +60,7 @@ filter(x, Sepal.Length > 4)
 rename(x, PW = Petal.Width)
 
 # or change the name of one of the species...
-mutate(x, Species = ifelse(Species == "setosa", "virginica", Species))
+mutate(x, Species = ifelse(Species == "setosa", "ibexus", Species))
 
 # how about doing some things together?
 # let's rename the columns, add one to all the petal widths, filter out sepal widths < 3
@@ -86,7 +86,7 @@ iris %>% as_tibble() %>%
 
 # Mini-exercise - it's your turn to try!
 
-# 1. Filter all petal lengths greater than 1.5 and sort the data 
+# 1. Filter all petal lengths greater than 1.5 and arrange the data 
 #    by petal length in descending order
 
 # 2. Get the species means for each plant measurement
