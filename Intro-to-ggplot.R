@@ -36,6 +36,13 @@ ggplot(iris, aes(x = Species, y = Sepal.Length)) +
 ggplot(iris, aes(x = Species)) +
     geom_bar()
 
+# or density plots
+ggplot(iris) +
+    geom_density(aes(Sepal.Length, color = Species))
+
+ggplot(iris) +
+    geom_density2d(aes(Sepal.Length, Sepal.Width, color = Species))
+
 # You can also combine ggplot with the pipeline. 
 ggplot(iris %>% filter(Sepal.Length < 5), aes(x = Species)) +
     geom_bar()
